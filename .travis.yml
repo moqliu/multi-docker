@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true moqliu/react-test npm test
 
 after_success:
-  - docker build -t moqliu/multi-client ./client
-  - docker build -t moqliu/multi-nginx ./nginx
-  - docker build -t moqliu/multi-server ./server
-  - docker build -t moqliu/multi-worker ./worker
+  - docker build -t moqingliu/multi-client ./client
+  - docker build -t moqingliu/multi-nginx ./nginx
+  - docker build -t moqingliu/multi-server ./server
+  - docker build -t moqingliu/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push them to docker hub
-  - docker push moqliu/multi-client
-  - docker push moqliu/multi-nginx
-  - docker push moqliu/multi-server
-  - docker push moqliu/multi-worker
+  - docker push moqingliu/multi-client
+  - docker push moqingliu/multi-nginx
+  - docker push moqingliu/multi-server
+  - docker push moqingliu/multi-worker
